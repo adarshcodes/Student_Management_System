@@ -1,0 +1,80 @@
+hides.push(propns);
+                            }
+                         }
+                    }
+                    var keys = project.getProperties().keys();
+                    while(keys.hasMoreElements()) {
+                        var pn = new String(keys.nextElement());
+                        if(startsWith(pn, JFXPAR) && endsWith(pn, JFXPARN)) {
+                            var propn = new String(project.getProperty(pn));
+                            if(defined(propn) && !contains(hides, propn)) {
+                                var pv = replaceSuffix(pn, JFXPARN, JFXPARV);
+                                var propv = new String(project.getProperty(pv));
+                                if(defined(propv)) {
+                                    var par = app.createParam();
+                                    par.setName(propn);
+                                    par.setValue(propv);
+                                } else {
+                                    if(isTrue(fx_ant_api_1_1)) {
+                                        var arg = app.createArgument();
+                                        arg.addText(propn);
+                                    } else {
+                                        print("Warning: Unnamed parameters not supported by this version of JavaFX SDK deployment Ant tasks. Upgrade JavaFX to 2.0.2 or higher.");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // fx:resources
+                    var res = deploy.createResources();
+                    res.setProject(project);
+                    var deploydir = new String(project.getProperty("pp_deploy_dir"));
+                    if(isTrue(withpreloader)) {
+                        var f1 = res.createFileSet();
+                        f1.setProject(project);
+                        f1.setDir(new java.io.File(deploydir));
+                        var i1 = new String(project.getProperty("pp_deploy_fs1"));
+                        f1.setIncludes(i1);
+                        f1.setRequiredFor("preloader");
+                        var f2 = res.createFileSet();
+                        f2.setProject(project);
+                        f2.setDir(new java.io.File(deploydir));
+                        var i2a = new String(project.getProperty("jfx.deployment.jar"));
+                        var i2b = new String(project.getProperty("pp_deploy_fs2"));
+                        var e2c = new String(project.getProperty("pp_deploy_fs1"));
+                        f2.setIncludes(i2a);
+                        f2.setIncludes(i2b);
+                        f2.setExcludes(e2c);
+                        f2.setRequiredFor("startup");
+                        var lazyjars = getLazyJars();
+                        if(lazyjars != null) {
+                            var f3 = res.createFileSet();
+                            f3.setProject(project);
+                            f3.setDir(new java.io.File(deploydir));
+                            f3.setRequiredFor("runtime");
+                            setDownloadMode(f2,f3,lazyjars);
+                        }
+                    } else {
+                        var fn = res.createFileSet();
+                        fn.setProject(project);
+                        fn.setDir(new java.io.File(deploydir));
+                        var ia = new String(project.getProperty("jfx.deployment.jar"));
+                        var ib = new String(project.getProperty("pp_deploy_fs2"));
+                        fn.setIncludes(ia);
+                        fn.setIncludes(ib);
+                        fn.setRequiredFor("startup");
+                        var lazyjars = getLazyJars();
+                        if(lazyjars != null) {
+                            var fn2 = res.createFileSet();
+                            fn2.setProject(project);
+                            fn2.setDir(new java.io.File(deploydir));
+                            fn2.setRequiredFor("runtime");
+                            setDownloadMode(fn,fn2,lazyjars);
+                        }
+                    }
+                    
+                    // fx:info
+                    var info = deploy.createInfo();
+                    info.setProject(project);
+                    var vendor = new Strin

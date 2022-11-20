@@ -1,0 +1,77 @@
+alse(testStep + ".ST:1. Statement.isClosed(): false.", testStatement.isClosed());
+
+        while (testResultSet1.next()) {
+        }
+
+        assertFalse(testStep + ".ST:1. ResultSet.isClosed(): false after ResultSet have reached the end.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false.", testStatement.isClosed());
+
+        testResultSet1.close(); // although it's last open ResultSet, Statement mustn't be closed
+
+        assertTrue(testStep + ".ST:1. ResultSet.isClosed(): true.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false when last ResultSet is closed.", testStatement.isClosed());
+
+        // test implicit resultset (not) close, keeping statement open, when following with an executeBatch()
+        testStatement = (StatementImpl) testConnection.createStatement();
+        testStatement.closeOnCompletion();
+
+        testResultSet1 = testStatement.executeQuery("SELECT 1");
+        testStatement.addBatch("INSERT INTO testBug68916_tbl (fld2) VALUES (1), (2), (3)");
+        testStatement.executeBatch();
+
+        assertFalse(testStep + ".ST:1. ResultSet.isClosed(): false after executeBatch() in same Statement.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false.", testStatement.isClosed());
+
+        testResultSet1 = testStatement.getGeneratedKeys();
+        testResultSet1.close(); // although it's last open ResultSet, Statement mustn't be closed
+
+        assertTrue(testStep + ".ST:1. ResultSet.isClosed(): true.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false when last ResultSet is closed.", testStatement.isClosed());
+
+        // test implicit resultset (not) close keeping statement open, when following with an executeUpdate()
+        testStatement = (StatementImpl) testConnection.createStatement();
+        testStatement.closeOnCompletion();
+
+        testResultSet1 = testStatement.executeQuery("SELECT 1");
+        testStatement.executeUpdate("INSERT INTO testBug68916_tbl (fld2) VALUES (1), (2), (3)", Statement.RETURN_GENERATED_KEYS);
+
+        assertFalse(testStep + ".ST:1. ResultSet.isClosed(): false after executeUpdate() in same Statement.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false.", testStatement.isClosed());
+
+        testResultSet1 = testStatement.getGeneratedKeys();
+        testResultSet1.close(); // although it's last open ResultSet, Statement mustn't be closed
+
+        assertTrue(testStep + ".ST:1. ResultSet.isClosed(): true.", testResultSet1.isClosed());
+        assertFalse(testStep + ".ST:1. Statement.isClosed(): false when last ResultSet is closed.", testStatement.isClosed());
+
+        // **testing PreparedStatement**
+        // PreparedStatement, although using closeOnCompletion, shouldn't be closed when last ResultSet is closed
+        testPrepStatement = (PreparedStatement) testConnection.prepareStatement("SELECT 1");
+        testPrepStatement.closeOnCompletion();
+
+        testResultSet1 = testPrepStatement.executeQuery();
+
+        assertFalse(testStep + ".PS:1. ResultSet.isClosed(): false.", testResultSet1.isClosed());
+        assertFalse(testStep + ".PS:1. PreparedStatement.isClosed(): false.", testPrepStatement.isClosed());
+
+        while (testResultSet1.next()) {
+        }
+
+        assertFalse(testStep + ".PS:1. ResultSet.isClosed(): false after ResultSet have reached the end.", testResultSet1.isClosed());
+        assertFalse(testStep + ".PS:1. PreparedStatement.isClosed(): false.", testPrepStatement.isClosed());
+
+        testResultSet1.close(); // although it's last open ResultSet, Statement mustn't be closed
+
+        assertTrue(testStep + ".PS:1. ResultSet.isClosed(): true.", testResultSet1.isClosed());
+        assertFalse(testStep + ".PS:1. PreparedStatement.isClosed(): false when last ResultSet is closed.", testPrepStatement.isClosed());
+
+        /*
+         * SUB-STEP 2: Multiple ResultSets, sequentially (dontTrackOpenResources=true)
+         */
+        testStatement = (StatementImpl) testConnection.createStatement();
+        testStatement.closeOnCompletion();
+
+        testResultSet1 = testStatement.executeQuery("SELECT 1");
+        testResultSet2 = testStatement.executeQuery("SELECT 2"); // mustn't close testResultSet1
+
+        assertFalse(testStep + ".

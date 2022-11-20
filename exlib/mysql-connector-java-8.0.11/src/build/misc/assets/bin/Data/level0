@@ -1,0 +1,415 @@
+id mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_southMousePressed(evt);
+            }
+        });
+
+        lbl_east.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbl_east.setForeground(new java.awt.Color(166, 166, 166));
+        lbl_east.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project16/Icons/search_18px_2.png"))); // NOI18N
+        lbl_east.setText("Eastern Field");
+        lbl_east.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_eastMousePressed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(22, 27, 33));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setText("(c) KeepToo 2017");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(21, 21, 21))
+        );
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project16/Icons/speech_bubble_25px.png"))); // NOI18N
+
+        javax.swing.GroupLayout pnl_sidebarLayout = new javax.swing.GroupLayout(pnl_sidebar);
+        pnl_sidebar.setLayout(pnl_sidebarLayout);
+        pnl_sidebarLayout.setHorizontalGroup(
+            pnl_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_sidebarLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(pnl_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_sidebarLayout.createSequentialGroup()
+                        .addGroup(pnl_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_north, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_south, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_west, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_east, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_sidebarLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))))
+        );
+        pnl_sidebarLayout.setVerticalGroup(
+            pnl_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_sidebarLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(lbl_north, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_south, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_west, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_east, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pnl_chart.setBackground(new java.awt.Color(54, 63, 73));
+        pnl_chart.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_chartMouseDragged(evt);
+            }
+        });
+        pnl_chart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnl_chartMousePressed(evt);
+            }
+        });
+        pnl_chart.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setBackground(new java.awt.Color(34, 41, 50));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("X  ");
+        jLabel1.setOpaque(true);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
+        pnl_chart.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jTextField1.setBackground(new java.awt.Color(54, 63, 73));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setText(" Search");
+        jTextField1.setToolTipText("");
+        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTextField1MouseEntered(evt);
+            }
+        });
+        pnl_chart.add(jTextField1, java.awt.BorderLayout.PAGE_END);
+
+        pnl_table.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_table.setLayout(new javax.swing.BoxLayout(pnl_table, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 1, true));
+        jScrollPane1.setOpaque(false);
+
+        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(51, 51, 51));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "Lex Fontier", "EA", "TY"},
+                {"2", "Ryan Reynold", "US", "NY"},
+                {"3", "Jackie Wuan", "CH", "HK"},
+                {"4", "Monty Rattler", "UK", "LD"}
+            },
+            new String [] {
+                "ID", "NAME", "COUNTRY", "STATE"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
+        jTable1.setRowHeight(20);
+        jTable1.setSelectionBackground(new java.awt.Color(62, 226, 141));
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        pnl_table.add(jScrollPane1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_sidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnl_chart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnl_table, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnl_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_table, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    int xx;
+    int xy;
+    private void pnl_chartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_chartMousePressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_pnl_chartMousePressed
+
+    private void pnl_chartMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_chartMouseDragged
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_pnl_chartMouseDragged
+
+    private void lbl_northMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_northMousePressed
+        // TODO add your handling code here:
+        setLblColor(lbl_north);
+        resetLblColor(lbl_south);
+        resetLblColor(lbl_east);
+        resetLblColor(lbl_west);
+
+    }//GEN-LAST:event_lbl_northMousePressed
+
+    private void lbl_southMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_southMousePressed
+        // TODO add your handling code here:
+        setLblColor(lbl_south);
+        resetLblColor(lbl_north);
+        resetLblColor(lbl_east);
+        resetLblColor(lbl_west);
+    }//GEN-LAST:event_lbl_southMousePressed
+
+    private void lbl_westMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_westMousePressed
+        // TODO add your handling code here:
+        setLblColor(lbl_west);
+        resetLblColor(lbl_south);
+        resetLblColor(lbl_east);
+        resetLblColor(lbl_north);
+    }//GEN-LAST:event_lbl_westMousePressed
+
+    private void lbl_eastMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_eastMousePressed
+        // TODO add your handling code here:
+        RenderChart();
+        setLblColor(lbl_east);
+        resetLblColor(lbl_south);
+        resetLblColor(lbl_north);
+        resetLblColor(lbl_west);
+    }//GEN-LAST:event_lbl_eastMousePressed
+
+    private void pnl_sidebarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_sidebarMousePressed
+        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_pnl_sidebarMousePressed
+
+    private void pnl_sidebarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_sidebarMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xx, y - xy);
+    }//GEN-LAST:event_pnl_sidebarMouseDragged
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void jTextField1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseEntered
+        // TODO add your handling code here:
+        jTextField1.setText("");
+    }//GEN-LAST:event_jTextField1MouseEntered
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    public void setLblColor(JLabel lbl) {
+        lbl.setForeground(new Color(48, 201, 235));
+    }
+
+    public void resetLblColor(JLabel lbl) {
+        lbl.setForeground(new Color(166, 166, 166));
+    }
+
+    //Let's add a chart to top Jpanel
+    //We are going to use JfreeCharts
+    //Source will be 
+    //Ofcourse before doing anything else you need to download JfreeCharts Lib and import into your project
+    public CategoryDataset createDataset() {
+        final double[][] data = new double[][]{
+            {1.0, 4.0, 3.0, 5.0, 5.0, 7.0, 7.0, 8.0},
+            {5.0, 7.0, 6.0, 8.0, 4.0, 4.0, 2.0, 1.0},
+            {4.0, 3.0, 2.0, 3.0, 6.0, 3.0, 4.0, 3.0}
+        };
+
+        final CategoryDataset dataset = DatasetUtilities.createCategoryDataset(
+                "", "", data
+        );
+        return dataset;
+    }
+
+    private XYDataset createDataset2() {
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        XYSeries series1 = new XYSeries("Object 1");
+        XYSeries series2 = new XYSeries("Object 2");
+        XYSeries series3 = new XYSeries("Object 3");
+
+        series1.add(1.0, 2.0);
+        series1.add(2.0, 3.0);
+        series1.add(3.0, 2.5);
+        series1.add(3.5, 2.8);
+        series1.add(4.2, 6.0);
+
+        series2.add(2.0, 1.0);
+        series2.add(2.5, 2.4);
+        series2.add(3.2, 1.2);
+        series2.add(3.9, 2.8);
+        series2.add(4.6, 3.0);
+
+        series3.add(1.2, 4.0);
+        series3.add(2.5, 4.4);
+        series3.add(3.8, 4.2);
+        series3.add(4.3, 3.8);
+        series3.add(4.5, 4.0);
+
+        dataset.addSeries(series1);
+        dataset.addSeries(series2);
+        dataset.addSeries(series3);
+
+        return dataset;
+    }
+
+    void RenderChart() {
+        CategoryDataset ds = createDataset();
+
+        JFreeChart chart = ChartFactory.createStackedAreaChart("", "", "", ds);
+        chart.setBackgroundPaint(new Color(54, 63, 73));
+        chart.setBorderVisible(false);
+        chart.setBorderPaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setDomainGridlinePaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setDomainGridlinesVisible(false);
+        chart.getCategoryPlot().setOutlinePaint(new Color(54, 63, 73));
+
+        ChartPanel cp = new ChartPanel(chart);
+        cp.setBackground(new Color(54, 63, 73));
+
+        pnl_chart.add(cp, BorderLayout.CENTER);
+        pnl_chart.validate();
+
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Home16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Home16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Home16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Home16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Home16().setVisible(true);
+
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbl_east;
+    private javax.swing.JLabel lbl_north;
+    private javax.swing.JLabel lbl_south;
+    private javax.swing.JLabel lbl_west;
+    private javax.swing.JPanel pnl_chart;
+    private javax.swing.JPanel pnl_sidebar;
+    private javax.swing.JPanel pnl_table;
+    // End of variables declaration//GEN-END:variables
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         g‹#t‹µÜ~Æ™m¦˜~Ñ™|öp²ä.ÜlJŸ­yÃ¯¿‹“P¸·´–µ’4tyÁÀÈãœW¢_]ßÂÆ6˜a¡W¡=sÕ¥8¹˜JšNÌ£¢¤®%U2ùk¹Š—`\œIÁ=©ìÆâÑd…ùİ¿æ…Æ U-;I’Ê"RúbYH`¼Kc¥%­œï?Ã+ ˜aÉÈ@®Iÿ )…—C±¶½¸‚É#ÕÊASÏÅføv{»‹ûá,ŠcŒ€§Œ‡+“:V&Ÿkwwèµ†D—ñ×ßkAôıFÎŞòX]%‘¾p9MÛr0{tàVNé”Ù ]åG`e-½U›‚O#àdóÅNÍ¨[[~ä³;ıÍÄ‹Üg½y†<Y.§i%Ô2+ìCğ­ '* sŒWJ5[±}®ä«ÊÈÊªYUC…ã÷§Û°N·;;u¸¶$™˜¶ Ï'¥sÚÍ‘2‰IY¥#åM£k'×Öº)-eÈs¸…ÆFâØvæ°m,I,ò3¬\g8°^õº ÌTŒ]OÄ²Áeã™•
+1qÔÿ õ«VÒîxâİ4EUrÁósÜb¹oi“¼ª°p·
+cÅ³<ç¦k¹Ñô@¶ÖÑJVVB¹nŒU@àz¸P{ÉXªÚƒ ­°2ÊdãN?Z¥³fl¨–	H9;¸ê¼ŒÒ›wµ.<½¨X”#$c#ƒíOŸJg#£Ì•m£ùqüëO`ŞŒ†Ñ«msq- åE8Øü˜é×œdU›¹'Q IQ˜ïÜÌyÈ^ÃëÚ¶5]6(¡’v=ØîdóÇ?­ri¦$â9ÖE*V8ç9àıç=ëcm9‹R9b×BTy s’<À£%¸Çn‡=ªõŠI™œHÃ#ÀqÏr{óÍS½×¬RúKIm§TÌ\ÀàÉ8÷¬››k»$1j’Epƒ
+ŒùäŒË¥sÆÛ˜ŞOH›šµ¤Àv#r¡‹pÀÈ¸Áô ×Æ¾7Ô“ûVx!PÊJícĞnÆGœµô¹ğ¾ş;½>ıç6m×0Ù12#’HÇjäõ{ $—f££>rÈFTœö=8¥<;µÍ(ÔŠzø·QG–‹…d;ÚqÆ{dWŠE3	Ë·O óÁ¯kñİ™°u¹1íb64*3°­» NGã“MòG«¸ƒ2Ex§gcépü®œZ9Uİä$!+™“ Gê(X`@Îâ¹
+ íÇ'Ş¼ÎIv‘ßƒ×ÔÖÔÑ•xÚFæ•)_$Ëlı=ğnµ5İ…ìS7¶RÆ„¯ÊTa°ÙàûWå¾˜ÀÆÙê:ı	ğÎ¥ø‚Öhæı³FµwTÎ†fíÆ3ë\ïø–õ:kkN›>¡Ğ|3ñ<s@¥p8<·9ïïŠØ½Ğ.ô¨™á¿im·¡0ÊwlÁÚ{}møZ59ò
+îéÆº^ÛıeR ‘´–“¹Œ“ØòÍkÄĞİ­²)ÚêX0l/@>éèq\ü3vã ş=»TŞ(Ñ£—N†ay‹#©nüãò®ÄßiÑ±”ù‘ç®>eÖ¿távªeôZó?øï–iRÒ×İ÷Nÿ ÇR ğdí¸‚·	´ûœ×ÎÉr&R<¿˜€r?‹Í{_ˆ5·øSUò™]bxİ[§;¹¯t[“¿aPÄg¿}ÜŠó°¾æ/ïş‡ĞÓ‹yv¿³ÔŞ·¹\>l`îç¡ª/bn$i#;H98äõıjÁ!S­»§Á=Fi–·[L˜P7A=qøW£U{¬ÊƒjphújâîîòÉ„‘À¢—^˜Áç5ÍãcrAõ¯I’İ ÒÕû:FÃ§9“šó‹ŒLuÏ?JÓ‡æ¥„QÃæøÎ-f	ÿ 4ïÃÒ³ê:Z›&'Iöï]tF¬à0bóï\W…@7öØl”‰Ø}9­û—}Fù¶ÑáO|€£şªüÇˆ×&.¢?[á9:™~ÿ t»â„w³¸\vŒèÃ¦=kŸÓ­•îuMè–8ğ)®qšÜñÉw)ÆK*9 ÿ õê‡|ŠuEkpKy+·–<©$óœZò2¸óÔ²=üsä¤^g6ì‘Ä¨cêÊÀep1ëY—|,X—#vå*¸Æ8ÇZÒ¶eŞ>ÌªÜpƒ=ë¡ûs‡·FÓ…¼çWÖ}Q¯´|ºÄ/å<ù´§âKv•£·Î ÆqÁéëR?ÛcBÌ7)ÉØÍÁ'“ÓÖº»Ø v1’NJ·˜8ëô5Çêöoç³W.Õ¦*'…oíBÛ”°øo’UVuÂ·İ<t=*°–RQ¯8bq´òGSÅU×<©¨èÒÉª\Û£ÀY	<¸Üãq\uqÍqÕnïUR
+mš[xw8=Kf°xW{Æ¬-¡Û5œ…d_=Ø»^•Àjºi‚òkˆ¥’2è ¨ùA8#æÎAÅzæ‰$¦Æ ñ#@$]˜Ëzg"²¼Fh2°¨’6`«·å`Ny)¼–¨QÄÂögÎWö)jï*ÌË#1vl‚:`äc×˜ê÷¬_ÊŠä)pÊ]6©#xÏôF½&öĞ•'Ë*Œ3än'8 cšãSÀ°f–PY
+Gn¸ôÍyÕp•Bx¥å«ûÃeb±¼ä®ÖUlÄqÊÓ8¯!¼½(6«’ Ç5ô?Œ-’Ú_%R‰.ve;ï_>Ş(–YÆÜ;G>µãÍrÊÌöh55¡ËË$’r[íY³ŒğtÑÛ,…— xÈÿ 
+É¿„.JŒãõ¥
+QĞÁg#·QU‰'œÕ÷@ÍRlfµ‹1fŞpÖó[L§7FĞ©Í~Şi01ğö#¾[ìèç¨`ÀíÅ~Bão¾+öçÁº¼‡ü8éÈ:]£œrÑÌQÕÜÕY\F³¸U •ïëÛ¥T¹Ş-£Ç—Ü7`ò>ı…fÉu,G!Ü3…àô$ş½+cU¹
+íÜzg:UÆ_	g®H©vŒ™ÃH î €{u®&Úí?á+ğØn“%ô,=Aˆ0şUİøºBcB‰Œ6HÎ ÜÃò¯ñ¿gÕ<+>FF«åîÏ8–2¤gßWêü5?işÌ¹#ñ1¢£šEÿ 5)~LúÄD»‰K7î›W!BõÉ¯œ.QVôaÈÉ9Ã­{Ï‡fÄòÆFRX¤BO®Ò¥xv¢¸Ô¥]¥†AWãŒç¡æº¢¹1ÕóD¬ªNY\[û3)t™2r9IéŒÿ JÅÔ÷èp -ÀÇJÔR@Rd#kd§®µfê`Ÿ÷™ÎGoâæ½Tº²¡¹õ7m4ñmãÖ6ãô¬+•
+Îâ21ïÕgá{±Ğ"g$E<äa±Itƒ/“ÈÎã‘^^Fùjâ÷Ï?ŒéàåıÏò*éÎ‚î?ˆc#¹éùW¥¼ûÈ€NÅÏ9Á&¼®Ó0\+íÎÖAÓ¨ïÖ½<\q+`1©_âÉôúWÈñœ¯1ö^TæÀÉ,‡é!Œ°&ğÙŞÛ—ê8üªş¯""ÄÏ
+º	ÀecÃ€sÏ=ñŠçôx.L„ñÆAlóWuÙÃGÎHr<t?äWÇÒ^üQ÷µ¥¡â}@ÔïlnbÓ’	¡f Ã''ø†@¨ÖK·¼…¼¹%TS’@
+OÍ×®­ôm5Ì–êäúñZ·VvZ´ØÄÅríÁ$¨!}ı+Üö--ÍMÙı¥¬]°ÅÄ»[ àc¯¤¹¸Ô^T•®Ü2€‰tdöÍYøwã=+X²Ô."·i$·,(sËğÁÍA.ºní–à•‰›$ ÆAïî:çW½‹I[¼¸Ú’ª–r’GŞô¬¹m5Ã†VPÁClL#Ù5¹£ëÍ ¸&bìA¨7‡ÕBóâ-´24RLÖòª–`Ûˆ9Á$cÒ¯”¥»^ÊúÊv2ÊûeÀW€Ír: ¸‚êk«K4óvüîª¼“ÇOQZß¬Ğ?›2Næ!szœsÆ+ xúÂ{v»KBcbÀœÀã8¬İÑ´iOùNŞê6—‡*]˜«ü ¶rzVGˆ5IoÚÖ#a· ó€0O óïZZ¿R ®‘F¸ÎK.N¿µpW¿T;*ùd§œgüÖSõ:éQ“Ú%øş8ğ×Rc;ö¨=F@ê:sY:¤Q\ZaÉûÍÁ™pwyÉéŸZæ.ş+]:áJ’;û.:fºÛŸˆúdöÑˆ®³”MÃŸ”Ç8í\­«ØéT&§618ód¸äuõ¬2$Ú¥HØÑ”äQŠß]n<8OŞNƒÇ\×77Š]6ì·‹*Àax<wæ¥»{²:Öç¶Y²# `àİOøóQ‹³4ZGf`ß’8ã‘\|>8	Ç—`–ÉÊäß­Iqñé¾ayÉ*2jR¾†~Åı£»k(ïËÈˆR@éÏ<šÍ¿¸‚ÍÌ®Mëó.Àù>¼JäSâF¡$l‹
+´vç€9õ«SøöV†?İBg¡'®yÏÒªQ¶Œ#M¥twúOç¶´dµHjUX'%NsÏ¡«ÿ ğ³¦—Ék¹ZD ¬gq@7u /RxÖ‡ãYå–T¸E–¸(!Tr~µ¯{âè"1ˆ`†2£+¹2ÏOÊ¢-Ê”¬ÛñïîÅíéÊ\ª†%‰Ü«ĞòkÇ4¨’G$0¹ã?z—ÄÚÔúù–fP@
+¡ P ã 
+»£D…“9$üÙ#Û×4E]—nTuú;|ò1BÄ( àœ:â»(üÀHûÛvç=”c8'¯Óµaiã|“]¤ pp1ÀúWmj°¼‘¿ğ•åyİ´ôÓ$rkÛÃSG]õ%´Z$&?”LèÀÜGıjÔ#Eo!TgÛvûÀÇ-¢±X;–9ØeWûÜó“Î:VÍ¬YKrrW¿ğóÒ½8lyò˜Í9A“U¤b – u‘ÓëKaQ]ÂÃgGD9äãqäx­«Aƒ8wPYK1Ïİ<ãélãuÜÅI9R è¹;kh£&ËâBÈÀ#¨=jU¹n0ò1qôÍD" /úL@’W©ÏÏOÒGî£<ç 7øWçM~¥ÜLGUŸóÅ<Î„ƒ†Î99ïô¨D(ÅĞÉéòœ4¤
+x¸98û¨úÕŸ(ÔÉ|òü}½©*ãÏNGJTXs$€Á:ÄúSDq ¤?€éíÍ>B½«™ºç'¹Î)™Ü{CSà#&?VPAüébgî›?y†(P&ãz–àsÎzšä¸wr~ƒ·çJ|® „àc‚Äÿ N*Bñ»üĞ)$dä°ëJQìW¡^	@6q×'úcÖ…¹|–Æ:œ!@=˜óùô§àdşæ!ô¬eã6¶+ùÄ±HäŒtqÖ—Ì9 EZ±—1Æ2y;N?j‘¦ÿ eqÇ õë>Yv)UîP6ycïÇãL‚GcÏQÎ?ıu¢%“‚Oì tëúÒ4®[nÑØ 9Æiò²“ĞÍó òsRÆÒ‘„VÏçÇÒ­åØ(¹‘éÍG¹Éûî	ë–ÿ 
+V`'•sõ-éèOÓ4Ä†ã*|²~`qŸ¦r(ó6•BàGš°ò[*3¸æ²äf‘rşa‚Úp0Ê2O#óëNÒ€>e#« NzàQå!*x9'¶1Ç4¥TàméÓ¹©hĞU·‘™W¶ïÂ¥[båâ1õ%áøÓ"N}=yÆ*aıqš–‚öìh0~Ğ·={TŸgŞg—ãBqßœÏ8 ƒ×q9ÇÔôüª9YWcVÚ}òHÀöæ!‹Ÿ¿’Fp?¥H£$à{óJS8Æ>¹öç½5yÈ–4pÏÀ(D	8“ãï 3SŒg˜õÆuÈç89Ç½ 3Ê€õgêM(x‡<gæ')p 8Í"m¨éÓ¶)Y2²!ÖÜO«Ÿ³!rKcùŠssƒ€}Ç§‚I'¨úÒ,A@qn€{sõÉ© #÷I‘Ó
+;÷¨Ï?×ñ£ àr8ÏRiÙ™“‡pF8Îôèe%•F9=09÷¨‚cƒÆçñ¦ZåŸ¯\õì{
+B{Då‡ÊßS€yèqRX(ÉÍe«l?^°3Vã”:“¸sÇóªHd‘Nèæ ¯8©VV9 ŒUp@zú˜Î:à¨Ü8ç>ŸÖ‘-n—ŞxéÔóQ‚I?1ÉÈëŒŸ­4H~?™éÚ“ÎsÒ˜Dy¯¨­Ä°=Hüÿ Z‹ÍSÉ<qÓŸóÅ ºFÎO@G­TXäÊ3ÆâFOëR*€Oúş5[Ï ãoáÀ¨…È,x$ûÆ+[#$Í›†	<r>´ÀÇ##îãŸ^3UÖãq<axç"“Ì%H## ôÿ ëĞ¶Û,¯,xã?…K´Ù-Çj¢eö#ù~”	+ß¶sŞ¶‰Ø¿ 3éMÚUFU£˜ş9ïúS„˜C“Èéı8˜§bÜ/—\vœ;T‚rsíĞàu¤@	H"7Î::S"Rq¸ú˜­¢ˆlœc€£=©‚"	äãß¥F£`_ İğ©2p1ÔóÏåU[€“‘“Øš°€à;÷ô5^L±› Êãõ¥VsAÇ=ê’Fw‘d‚<~•XrÙ“ş¦¥Nìõö¦„eÇ>ßZ´¬fåv\°¼õÏ'ğ¡éÜg­WÁàôœúúSáÙòò23LWkBÂ6×ÏCRy¸<dsüê¨Æyíƒÿ UJ€ŸlsÏ=>”&I $Ùg#¯ò§,Ù:zôãğ¦)À8$çƒÇ¯õ¤RÏCÈÇ|sZŸqÂBpqØf¡”–$mãœÿ õ²jM„’œuÎIëùtª²ğY²2AëŸÒ€r4Ys¿?Ãœõî?Â¢V ûŞ–cò[ó‘pîMBÏ8 Ùê~´5Ü¸­/=ñ×8íşzT™÷àş ÕUls‚p¸úÓğyö<v*ÂKAÍ!Û“ÓŞ—©<{‘ßÒ£'’ŒpíŒoJ»±J]‰ÆìçFE*7d?j_3ã®OùéOVôäœç¥XZÄûˆÇ$_z3‚ÿ Z 9ãZr‘ü-“éôÉƒı§õ wçµ\x?J”~¸'éõÅfFÄªN0?İ*óØtÏµ<`zOçPH '#±àóŞ«.H³€“œcÓ©íYê{ã«RÇµ¸®
+¨„ÏOóéÍhBDÊ'Û)I®ùÀÜôà qı(Î;à¼Ôò-Gî9>¾‚!}³ïüê5lO_­4çÏh‘j)ƒÀçéJ9í×ğ¦“ÉäŸJo86~™ıhÔ2Eàú­H ÉìG8şu l¸'­(b_¦*-!¦L‡‘ïŠ•=ùõªéœûNƒÀõQøDÑÈÈcœ•Ïùõ©” ±`ŒSËü)‚¯€>ïğiÙù`õØµKcAäõ©LPàä…Ç×§½4~4Y•˜õÈ#?€ÏzwCü¿:p¦=8¥SœäcÜçúTrÀÀ8öíÒ“q$ö ôÇJAÜcÒœ¥m4<G#Áõ¥Vå³qíùTco_­$˜÷ş_¥5!­‹Q…I^2;SXƒ’Õ`N9ã§zSÏ9 qÛÒR,íd`ø¸íÒ/½»öÿ d×Ä~/%ô­ÛpfnqØñÅ}¯ã	vè·­Î,=	Ü1ıkâo2¾Æ2X€@^F?â¦zYr÷¤xÚÉ+Ù‰Ç¾@®‡Â‹¾vòƒæ~EBöôÍ`ìËÿ ÀIúcšè´å+/©‚8Ã1Ÿ©ÅŠkÙIEƒ‹ucsjy
+J‘îáNß®TŠ’O-…ú²’À3)>ÄùÕ93ËÊ²e½	Æz}igiÈÀd†mÌz¬?¥y
+?¢[I3ƒ¾bg»'®W?Zêôè| öôæ¹­U@šàäÓ™»o&q×sóíŸşµzµõ¥[V\µj_úÔØ‘‘Ğ©à”Ü‘ü«½ğÚbÙ©#¦=OøWŸÛ€'i3V5Çæwú9É*6¨'r?úÕábœ§·Réó3Î|W°\İn\à€9à+G¸å•“0~ëmì~µÓxŠvƒR‰FYYAşîÒ+—[¸‘˜ù`g;}&şÊ+û§ÁÔş%Î’â#’Ù-É1¶‚rwåĞUFéí'–ßb²#îVÆ'‘’:â²U"U“?w;@ ØïZ"é/‚¡FÜX€?OáZ¨5«øGíØ°‘Ü²C¹ò²6åëŸz¹sm-±µ$±Ê¿ a’¹<®• ¶%„_¼
+/ÊrTƒÛò¥×¬?ræXşpW°’>¼VNwgDtJÇG éww
+¥'h£nU˜;zşUÕ]h²4(ÑêFà) ÀìÇUù°NO­y¥„—qÛo‡Y*C1 q¸0ÀúU½7±5ş?3É8 ç¶kÆ­†“”¤êä§ĞP­uìÎ‰ô™K7’v¶Ğ¡Ë‰à˜ã5ØØKi§Á˜şc‚<Ó¼çäœñ\Œ—V7
+‹> ¬T`4
+QØ>lğxã=k°Óeğ—’Í.˜³(VùİÈ ãÂ‘•æW½­(Ïî;á±fı¯ˆ-Ó,	]^åŠ†1ÔwèkbŠe ]IB ©Tù0NÜ¾õËYø‡Ál†Ñ°Y@R­’Œ;ƒ’'±«7v^¹O2+ÙÔÆ'"%Ic´€AÏCŞ¹•_Ş£?¸™Î¢V\¤^"ñmİûG-ã # ùˆHÎO Iü+š†kiI*Ñ XÛ0Ì±ŞµZâïÁ‘Eå»¡ámäúd°ª-s¡S$ÊK™‰\Üz×DiS[S”~C´šÖQ4gÖîcF0·–ØûÑŒdÈÏ¿¥gè_îíÃ(ÔeŒô*ß8 Œ†ÈúÕ§×ü2i°ºR:‘ ôã 
+¦,¼	9lWÍ–%ÿ z û*’1ø×E(Rå÷¨Ïî1›«xÚQ9ÿ ê¦ğ-•ÓÆì@Šyä°9ÆqÉªw©s,r—‘ÁË“Xç<ŒrOÔWµiŞğª˜´¾¼³º#å[—R$`ÊÎ;qX÷ôèínnî’uÃ*lª¥€ÜN
+àù®•Š¡x®YÅÇû§7ï×Şæ9­3ÅĞAcölÅ#£"ÀòG§•}âX’G rÙL‡!là:ú×â†6ÚV“=ĞÖ ºå– ˜ß·#œ¼p{×—Km¥£VrBïóbHÉşñ8Å]xy.eïsÚÖ¿,cğ—|+«y#²W‰–2£!NzãšèìÚIA;K»iÀ<ñ’'µÁÙŞXi¦)lîn@ã>xVR \ï[ç\·YVh¤
+áˆC³'$àéÇ¨­*QÖN12Œ›qR–¦ı¬÷v²a.®­ä}Ä…`cPÜş…uzDú¼×K¢ìJ…fg	»™'¶;W*ş7Ğ†–ÒäJ  ;çÜäqX×µ•ÁŠK+»˜X7!ˆÎ}

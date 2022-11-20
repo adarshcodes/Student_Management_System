@@ -1,0 +1,106 @@
+ng.format(
+                        "Connection id %d not found in \"SHOW PROCESSLIST\", assuming 32-bit overflow, using SELECT CONNECTION_ID() instead", threadId));
+
+                NativePacketPayload resultPacket = sendCommand(this.commandBuilder.buildComQuery(null, "SELECT CONNECTION_ID()"), false, 0);
+                Resultset rs = ((NativeProtocol) this.protocol).readAllResults(-1, false, resultPacket, false, null,
+                        new ResultsetFactory(Type.FORWARD_ONLY, null));
+
+                ValueFactory<Long> lvf = new LongValueFactory();
+                Row r;
+                if ((r = rs.getRows().next()) != null) {
+                    threadId = r.getValue(0, lvf);
+                    processHost = findProcessHost(threadId);
+                } else {
+                    this.log.logError("No rows returned for statement \"SELECT CONNECTION_ID()\", local connection check will most likely be incorrect");
+                }
+            }
+
+            if (processHost == null) {
+                this.log.logWarn(String.format(
+                        "Cannot find process listing for connection %d in SHOW PROCESSLIST output, unable to determine if locally connected", threadId));
+            }
+            return processHost;
+        } catch (IOException e) {
+            throw ExceptionFactory.createException(e.getMessage(), e);
+        }
+    }
+
+    private String findProcessHost(long threadId) {
+        try {
+            String processHost = null;
+
+            NativePacketPayload resultPacket = sendCommand(this.commandBuilder.buildComQuery(null, "SHOW PROCESSLIST"), false, 0);
+            Resultset rs = ((NativeProtocol) this.protocol).readAllResults(-1, false, resultPacket, false, null, new ResultsetFactory(Type.FORWARD_ONLY, null));
+
+            ValueFactory<Long> lvf = new LongValueFactory();
+            ValueFactory<String> svf = new StringValueFactory(rs.getColumnDefinition().getFields()[2].getEncoding());
+            Row r;
+            while ((r = rs.getRows().next()) != null) {
+                long id = r.getValue(0, lvf);
+                if (threadId == id) {
+                    processHost = r.getValue(2, svf);
+                    break;
+                }
+            }
+
+            return processHost;
+
+        } catch (IOException e) {
+            throw ExceptionFactory.createException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Get the variable value from server.
+     * 
+     * @param varName
+     * @return
+     */
+    public String queryServerVariable(String varName) {
+        try {
+
+            NativePacketPayload resultPacket = sendCommand(this.commandBuilder.buildComQuery(null, "SELECT " + varName), false, 0);
+            Resultset rs = ((NativeProtocol) this.protocol).readAllResults(-1, false, resultPacket, false, null, new ResultsetFactory(Type.FORWARD_ONLY, null));
+
+            ValueFactory<String> svf = new StringValueFactory(rs.getColumnDefinition().getFields()[0].getEncoding());
+            Row r;
+            if ((r = rs.getRows().next()) != null) {
+                String s = r.getValue(0, svf);
+                if (s != null) {
+                    return s;
+                }
+            }
+
+            return null;
+
+        } catch (IOException e) {
+            throw ExceptionFactory.createException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Send a query to the server. Returns one of the ResultSet objects.
+     * To ensure that Statement's queries are serialized, calls to this method
+     * should be enclosed in a connection mutex synchronized block.
+     * 
+     * @param callingQuery
+     * @param query
+     *            the SQL statement to be executed
+     * @param maxRows
+     * @param packet
+     * @param streamResults
+     * @param catalog
+     * @param cachedMetadata
+     * @param isBatch
+     * @return a ResultSet holding the results
+     */
+    public <T extends Resultset> T execSQL(Query callingQuery, String query, int maxRows, NativePacketPayload packet, boolean streamResults,
+            ProtocolEntityFactory<T, NativePacketPayload> resultSetFactory, String catalog, ColumnDefinition cachedMetadata, boolean isBatch) {
+
+        long queryStartTime = 0;
+        int endOfQueryPacketPosition = 0;
+        if (packet != null) {
+            endOfQueryPacketPosition = packet.getPosition();
+        }
+
+        if (this.gatherPerfMetrics.getValue()
